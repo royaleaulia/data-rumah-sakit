@@ -17,25 +17,37 @@ Route::get('/', function () {
 });
 
 Route::get('/pasien', function () {
-    return view('pasien');
+    return view('pasien', [
+        "title" => "Pasien"
+        ]);
 });
 
 Route::get('/dokter', function () {
-    return view('dokter');
+    return view('dokter', [
+        "title" => "Dokter"
+    ]);
 });
 
 Route::get('/perawat', function () {
-    return view('perawat');
+    return view('perawat', [
+        "title" => "Perawat"
+    ]);
 });
 
 Route::get('/kamar', function () {
-    return view('kamar');
+    return view('kamar', [
+        "title" => "Kamar"
+    ]);
 });
 
 Route::get('/obat', function () {
-    return view('obat');
+    return view('obat', [
+        "title" => "Obat"
+    ]);
 });
 
 Route::get('/petugas_administrasi', function () {
-    return view('petugas_administrasi');
+    return view('petugas_administrasi', [
+        "title" => "Petugas Administrasi"
+    ]);
 });

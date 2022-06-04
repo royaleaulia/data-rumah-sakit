@@ -29,6 +29,20 @@
           <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Detail
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/data_pemeriksaan">Data Pemeriksaan Dokter dan Pasien</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/data_administrasi">Data Administrasi Pasien</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/data_pembelian_obat">Data Pembelian Obat pada Pasien</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="data_rawat_inap">Data Rawat Inap</a></li>
+            </ul>
+          </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

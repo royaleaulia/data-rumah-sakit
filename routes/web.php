@@ -51,3 +51,28 @@ Route::get('/petugas_administrasi', function () {
         "title" => "Petugas Administrasi"
     ]);
 });
+
+
+Route::get('/data_administrasi', function () {
+    return view('data_administrasi', [
+        "title" => "Data Administrasi"
+    ]);
+});
+
+Route::get('/data_pembelian_obat', function () {
+    return view('data_pembelian_obat', [
+        "title" => "Data Pembelian Obat"
+    ]);
+});
+
+Route::get('/data_pemeriksaan', function () {
+    return view('data_pemeriksaan', [
+        "title" => "Data Pemeriksaan"
+    ]);
+});
+
+Route::get('/data_rawat_inap', function () {
+    return view('data_rawat_inap', [
+        "title" => "Data Rawat Inap"
+    ]);
+});

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,8 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/pasien','pasienController@index')->name('pasien');
+Route::get('/create_pasien', 'pasienController@create')->name('create_pasien');
+Route::post('/save_pasien', 'pasienController@store')->name('simpan_pasien');
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('pasien', [
+        "title" => "Pasien"
+        ]);
 });
 
 Route::get('/pasien', function () {
@@ -21,10 +29,19 @@ Route::get('/pasien', function () {
         "title" => "Pasien"
         ]);
 });
-
+Route::get('/create_pasien', function () {
+    return view('create_pasien', [
+        "title" => "Create_Pasien"
+        ]);
+});
 Route::get('/dokter', function () {
     return view('dokter', [
         "title" => "Dokter"
+    ]);
+});
+Route::get('/create_dokter', function () {
+    return view('create_dokter', [
+        "title" => "Create_Dokter"
     ]);
 });
 

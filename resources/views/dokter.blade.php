@@ -9,15 +9,17 @@
     <div>
         <table class="table table-bordered">
             <tr>
-                <th>Nama</th>
-                <th>Jenis Kelamin</th>
+                <th>Nama Dokter</th>
+                <th>Jenis Kelamin Dokter</th>
                 <th>Spesialis</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            @foreach ($dokter as $dok)
+              <tr>  
+                  <td>{{ $dok->nama_dokter}}</td>
+                  <td>{{ $dok->jenis_kelamin_dokter}}</td>
+                  <td>{{ $dok->spesialis}}</td>
+              </tr>
+            @endforeach
         </table>
     </div>
 @endsection

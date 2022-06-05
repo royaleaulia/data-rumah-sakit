@@ -2,9 +2,16 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ObatController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DokterController;
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PerawatController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PasienPostController;
+use App\Http\Controllers\PetugasAdministrasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,3 +113,10 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+Route::get('/pasien', [PasienController::class, 'index'])->middleware('auth');
+Route::get('/dokter', [DokterController::class, 'index'])->middleware('auth');
+Route::get('/perawat', [PerawatController::class, 'index'])->middleware('auth');
+Route::get('/kamar', [KamarController::class, 'index'])->middleware('auth');
+Route::get('/obat', [ObatController::class, 'index'])->middleware('auth');
+Route::get('/petugas_administrasi', [PetugasAdministrasiController::class, 'index'])->middleware('auth');

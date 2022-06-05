@@ -11,22 +11,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title == "Dokter") ? 'active' : '' }}"  href="/dokter">Dokter</a>
+                  <a class="nav-link"  href="/dokter">Dokter</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title == "Perawat") ? 'active' : '' }}" href="/perawat">Perawat</a>
+                  <a class="nav-link" href="/perawat">Perawat</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title == "Pasien") ? 'active' : '' }}" href="/pasien">Pasien</a>
+                  <a class="nav-link" href="/pasien">Pasien</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title == "Kamar") ? 'active' : '' }}" href="/kamar">Kamar</a>
+                  <a class="nav-link" href="/kamar">Kamar</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title == "Obat") ? 'active' : '' }}" href="/obat">Obat</a>
+                  <a class="nav-link" href="/obat">Obat</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title == "Petugas Administrasi") ? 'active' : '' }}" href="/petugas_administrasi">Petugas Administrasi</a>
+                  <a class="nav-link" href="/petugas_administrasi">Petugas Administrasi</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link disabled">Disabled</a>
@@ -77,7 +77,7 @@
             </button>
       
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
                     <a class="nav-link disabled">Dokter</a>
                   </li>

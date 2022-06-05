@@ -12,4 +12,8 @@ class LoginController extends Controller
             'active' => 'login'
         ]);
     }
+    
+    public function store(){
+        return request()->all();
+    }
 }

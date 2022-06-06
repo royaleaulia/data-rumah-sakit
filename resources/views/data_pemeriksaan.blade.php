@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('dashboard.layout.main')
 
 @section('container')
     <h1>Halaman Data Pemeriksaan Dokter dan Pasien</h1>

@@ -3,7 +3,7 @@
 @section('container')
     <h1>Halaman Petugas Administrasi</h1>
     <div>
-        <a href="{{ '/create_dokter' }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
+        <a href="{{ '/create_petugas_administrasi' }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
     </div>
     <div>
         <table class="table table-bordered">

@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::get('/pasien', function () {
     return view('pasien', [
-        "title" => "Home"
+        "title" => "Pasien"
         ]);
 })->middleware('auth');
 
@@ -41,6 +41,7 @@ Route::get('/create_pasien', function () {
         "title" => "Create_Pasien"
         ]);
 })->middleware('auth');
+
 
 Route::resource('dokter', 'App\Http\Controllers\DokterController');
 
@@ -56,14 +57,32 @@ Route::get('/perawat', function () {
     ]);
 })->middleware('auth');
 
+Route::get('/create_perawat', function () {
+    return view('create_perawat', [
+        "title" => "Perawat"
+    ]);
+})->middleware('auth');
+
 Route::get('/kamar', function () {
     return view('kamar', [
         "title" => "Kamar"
     ]);
 })->middleware('auth');
 
+Route::get('/create_kamar', function () {
+    return view('create_kamar', [
+        "title" => "Create_Kamar"
+    ]);
+})->middleware('auth');
+
 Route::get('/obat', function () {
     return view('obat', [
+        "title" => "Obat"
+    ]);
+})->middleware('auth');
+
+Route::get('/create_obat', function () {
+    return view('create_obat', [
         "title" => "Obat"
     ]);
 })->middleware('auth');
@@ -74,6 +93,11 @@ Route::get('/petugas_administrasi', function () {
     ]);
 })->middleware('auth');
 
+Route::get('/create_petugas_administrasi', function () {
+    return view('create_petugas_administrasi', [
+        "title" => "Petugas Administrasi"
+    ]);
+})->middleware('auth');
 
 Route::get('/data_administrasi', function () {
     return view('data_administrasi', [
@@ -115,6 +139,9 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+})->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -124,19 +151,19 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', function(){
-    return view('dashboard.index');
-})->middleware('auth');
-
 Route::get('/pasien', [PasienController::class, 'index'])->middleware('auth');
+Route::post('pasien/tambah', [PasienController::class, 'store'])->name('simpanpasien')->middleware('auth');
 
-Route::get('/dokter', [DokterController::class, 'index'])->middleware('auth');
-Route::post('/dokter', [DokterController::class, 'store'])->name('simpandokter')->middleware('auth');
-Route::post('/post/create', [DokterController::class, 'store']);
+Route::post('dokter/tambah', [DokterController::class, 'store'])->name('simpandokter')->middleware('auth');
 
 Route::get('/perawat', [PerawatController::class, 'index'])->middleware('auth');
+Route::post('perawat/tambah', [PerawatController::class, 'store'])->name('simpanperawat')->middleware('auth');
 
 Route::get('/kamar', [KamarController::class, 'index'])->middleware('auth');
+Route::post('kamar/tambah', [KamarController::class, 'store'])->name('simpankamar')->middleware('auth');
 
 Route::get('/obat', [ObatController::class, 'index'])->middleware('auth');
+Route::post('obat/tambah', [ObatController::class, 'store'])->name('simpanobat')->middleware('auth');
+
 Route::get('/petugas_administrasi', [PetugasAdministrasiController::class, 'index'])->middleware('auth');
+Route::post('petugas_administrasi/tambah', [PetugasAdministrasiController::class, 'store'])->name('simpanpetugas')->middleware('auth');

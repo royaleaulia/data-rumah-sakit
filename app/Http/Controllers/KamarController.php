@@ -25,7 +25,7 @@ class KamarController extends Controller
      */
     public function create()
     {
-        //
+        return view ('create_kamar');
     }
 
     /**
@@ -36,7 +36,12 @@ class KamarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kamar = kamar::create([
+            'nama_kamar' => $request->nama_kamar,
+            'nomor_kamar' => $request->nomor_kamar,
+        ]);
+
+        return redirect()->action([KamarController::class, 'index']);
     }
 
     /**

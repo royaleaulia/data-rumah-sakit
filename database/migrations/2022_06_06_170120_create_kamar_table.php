@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table-> string("nama_kamar", 50);
             $table-> string("nomor_kamar", 11);
+            $table->timestamps();
         });
     }
 

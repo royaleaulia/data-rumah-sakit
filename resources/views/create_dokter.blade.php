@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('dashboard.layout.main')
 
 @section('container')
     <h1>Halaman Tambah Data Dokter</h1>
@@ -6,7 +6,7 @@
 <a href="{{ '/dokter' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
 <div class="card card-info card-outline">
 <div class="card-body">
-   <form action="" method="post">
+   <form action="{{ route('simpandokter') }}" method="post">
     @csrf
         <div class="form-group">
             <input type="text" id="nama_dokter" name="nama_dokter" class="form-control" placeholder="Nama Dokter">

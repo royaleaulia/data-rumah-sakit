@@ -24,7 +24,7 @@ class PerawatController extends Controller
      */
     public function create()
     {
-        //
+        return view ('create_perawat');
     }
 
     /**
@@ -35,7 +35,12 @@ class PerawatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $perawat = perawat::create([
+            'nama_perawat' => $request->nama_perawat,
+            'jenis_kelamin' => $request->jenis_kelamin,
+        ]);
+
+        return redirect()->action([PerawatController::class, 'index']);
     }
 
     /**

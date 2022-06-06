@@ -66,9 +66,9 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(dokter $dokter)
     {
-        //
+        return view('dokter.edit', compact('student'));
     }
 
     /**
@@ -89,8 +89,10 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(dokter $dokter)
     {
-        //
+        $dokter->delete();
+
+        return redirect()->action([DokterController::class, 'index'])->with('succes','dokter deleted succesfully');
     }
 }

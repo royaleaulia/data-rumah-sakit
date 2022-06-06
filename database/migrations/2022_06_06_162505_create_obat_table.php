@@ -18,6 +18,7 @@ return new class extends Migration
             $table-> string("nama_obat", 255);
             $table-> string("jenis_obat", 255);
             $table-> text("fungsi_obat", 500);
+            $table->timestamps();
         });
     }
 

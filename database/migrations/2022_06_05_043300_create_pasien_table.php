@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('alamat_pasien', 500);
             $table->string('jenis_kelamin_pasien', 20);
             $table->string('no_telp_pasien', 20);
-
+            $table->timestamps();
         });
     }
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table-> id();
             $table-> string("nama_perawat", 255);
             $table-> string("jenis_kelamin", 255);
+            $table->timestamps();
         });
     }
 

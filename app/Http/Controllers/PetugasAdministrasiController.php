@@ -25,7 +25,7 @@ class PetugasAdministrasiController extends Controller
      */
     public function create()
     {
-        //
+        return view ('create_petugas_administrasi');
     }
 
     /**
@@ -36,7 +36,14 @@ class PetugasAdministrasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kamar = petugas_administrasi::create([
+            'nama_petugas' => $request->nama_petugas,
+            'alamat_petugas' => $request->alamat_petugas,
+            'jenis_kelamin_petugas' => $request->jenis_kelamin_petugas,
+
+        ]);
+
+        return redirect()->action([PetugasAdministrasiController::class, 'index']);
     }
 
     /**
@@ -45,7 +52,7 @@ class PetugasAdministrasiController extends Controller
      * @param  \App\Models\pegawai_administrasi  $pegawai_administrasi
      * @return \Illuminate\Http\Response
      */
-    public function show(pegawai_administrasi $pegawai_administrasi)
+    public function show($id)
     {
         //
     }
@@ -53,10 +60,10 @@ class PetugasAdministrasiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\pegawai_administrasi  $pegawai_administrasi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(pegawai_administrasi $pegawai_administrasi)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +72,10 @@ class PetugasAdministrasiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\pegawai_administrasi  $pegawai_administrasi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, pegawai_administrasi $pegawai_administrasi)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +83,10 @@ class PetugasAdministrasiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\pegawai_administrasi  $pegawai_administrasi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pegawai_administrasi $pegawai_administrasi)
+    public function destroy($id)
     {
         //
     }

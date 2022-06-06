@@ -28,7 +28,7 @@ class LoginController extends Controller
 
         if(FacadesAuth::attempt($credential)){
             $request->session()->regenerate();
-            return redirect()->intended('/pasien');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('loginError', 'Login failed!');

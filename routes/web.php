@@ -25,14 +25,14 @@ use App\Http\Controllers\PetugasAdministrasiController;
 */
 
 Route::get('/', function () {
-    return view('login.index', [
+    return view('home', [
         "title" => "Login"
         ]);
 });
 
 Route::get('/pasien', function () {
     return view('pasien', [
-        "title" => "Pasien"
+        "title" => "Home"
         ]);
 })->middleware('auth');
 
@@ -128,7 +128,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+})->middleware('auth');
 
 Route::get('/pasien', [PasienController::class, 'index'])->middleware('auth');
 Route::get('/dokter', [DokterController::class, 'index'])->middleware('auth');

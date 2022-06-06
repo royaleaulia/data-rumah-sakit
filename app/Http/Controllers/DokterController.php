@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\dokter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DokterController extends Controller
 {
@@ -22,9 +23,11 @@ class DokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+
+        return view('create_dokter');
     }
 
     /**
@@ -35,7 +38,16 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $dokter = dokter::create([
+            'nomor_identitas_dokter' => $request->nomor_identitas_dokter,
+            'nama_dokter' => $request->nama_dokter,
+            'jenis_kelamin_dokter' => $request->jenis_kelamain_dokter,
+            'spesialis' => $request->spesialis,
+        ]);
+
+        return redirect()->route('tampildokter');
+
     }
 
     /**

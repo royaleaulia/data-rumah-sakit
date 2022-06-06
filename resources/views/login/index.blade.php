@@ -21,7 +21,7 @@
         <main class="form-signin w-100 m-auto">
             <form action="/login" method="post">
                 @csrf
-              <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+              <h1 class="h3 mb-3 fw-normal">Please Login</h1>
           
               <div class="form-floating">
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required>

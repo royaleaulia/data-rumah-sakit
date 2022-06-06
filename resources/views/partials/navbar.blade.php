@@ -11,16 +11,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title === "dokter") ? 'active' : '' }}"    href="/dokter">Dokter</a>
+                  <a class="nav-link" href="/dokter">Dokter</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title === "perawat") ? 'active' : '' }}"  href="/perawat" >Perawat</a>
+                  <a class="nav-link" href="/perawat" >Perawat</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title === "pasien") ? 'active' : '' }}"  href="/pasien" >Pasien</a>
+                  <a class="nav-link" href="/pasien" >Pasien</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{ ($title === "kamar") ? 'active' : '' }}"  href="/kamar" >Kamar</a>
+                  <a class="nav-link" href="/kamar" >Kamar</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/obat">Obat</a>

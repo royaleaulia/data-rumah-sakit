@@ -97,11 +97,27 @@ Route::get('/data_pemeriksaan', function () {
     ]);
 })->middleware('auth');
 
+
+
 Route::get('/data_rawat_inap', function () {
     return view('data_rawat_inap', [
         "title" => "Data Rawat Inap"
     ]);
-})->middleware('auth');
+});
+
+
+Route::get('/home', function () {
+    return view('home', [
+        "title" => "Home"
+    ]);
+});
+
+
+Route::get('/about', function () {
+    return view('about', [
+        "title" => "About"
+    ]);
+});
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

@@ -9,14 +9,12 @@
     <div>
         <table class="table table-bordered">
             <tr>
-                <th>Nomor Identitas Dokter</th>
                 <th>Nama Dokter</th>
                 <th>Jenis Kelamin Dokter</th>
                 <th>Spesialis</th>
             </tr>
             @foreach ($dokter as $dok)
               <tr>  
-                  <td>{{ $dok->nomor_identitas_dokter }}</td>
                   <td>{{ $dok->nama_dokter}}</td>
                   <td>{{ $dok->jenis_kelamin_dokter}}</td>
                   <td>{{ $dok->spesialis}}</td>

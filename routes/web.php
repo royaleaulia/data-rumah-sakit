@@ -133,8 +133,15 @@ Route::get('/dashboard', function(){
 })->middleware('auth');
 
 Route::get('/pasien', [PasienController::class, 'index'])->middleware('auth');
+
 Route::get('/dokter', [DokterController::class, 'index'])->middleware('auth');
+Route::get('dokter/tambah', [DokterController::class, 'create'])->name('tambahdokter')->middleware('auth');
+Route::post('/dokter', [DokterController::class, 'store'])->name('simpandokter')->middleware('auth');
+
+
 Route::get('/perawat', [PerawatController::class, 'index'])->middleware('auth');
+
 Route::get('/kamar', [KamarController::class, 'index'])->middleware('auth');
+
 Route::get('/obat', [ObatController::class, 'index'])->middleware('auth');
 Route::get('/petugas_administrasi', [PetugasAdministrasiController::class, 'index'])->middleware('auth');

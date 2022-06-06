@@ -16,7 +16,6 @@
                 <tr>  
                     <td>{{ $per->nama_perawat}}</td>
                     <td>{{ $per->jenis_kelamin }}</td>
-                    <td>{{ $per->alamat_pasien}}</td>
                 </tr>
               @endforeach
             </tr>

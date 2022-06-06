@@ -43,34 +43,28 @@ Route::get('/create_pasien', function () {
 })->middleware('auth');
 
 Route::resource('dokter', 'App\Http\Controllers\DokterController');
-
-Route::get('/create_dokter', function () {
-    return view('create_dokter', [
-        "title" => "Create_Dokter"
-    ]);
-})->middleware('auth');
+Route::post('/dokter/store', 'App\Http\Controllers\DokterController@store');
+Route::get('/dokter/edit/{id_dokter}','App\Http\Controllers\DokterController@edit');
+Route::post('/dokter/update','App\Http\Controllers\DokterController@update');
+Route::get('/dokter/hapus/{id_dokter}','App\Http\Controllers\DokterController@destroy');
 
 Route::get('/perawat', function () {
     return view('perawat', [
-        "title" => "Perawat"
     ]);
 })->middleware('auth');
 
 Route::get('/kamar', function () {
     return view('kamar', [
-        "title" => "Kamar"
     ]);
 })->middleware('auth');
 
 Route::get('/obat', function () {
     return view('obat', [
-        "title" => "Obat"
     ]);
 })->middleware('auth');
 
 Route::get('/petugas_administrasi', function () {
     return view('petugas_administrasi', [
-        "title" => "Petugas Administrasi"
     ]);
 })->middleware('auth');
 

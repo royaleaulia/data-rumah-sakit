@@ -12,10 +12,14 @@ class DokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
     public function index()
     {
-        $dokter = dokter::select("*")->get();
-        return view('dokter', ['dokter' => $dokter]);
+        $dokter = DB::table('dokter')->get();
+        return view('dokter',['dokter' => $dokter]);
+        // $dokter = dokter::select("*")->get();
+        // return view('dokter', ['dokter' => $dokter]);
     }
 
     /**
@@ -23,10 +27,8 @@ class DokterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
-
         return view('create_dokter');
     }
 
@@ -46,7 +48,7 @@ class DokterController extends Controller
             'spesialis' => $request->spesialis,
         ]);
 
-        return redirect()->action([DokterController::class, 'index']);
+        return redirect('/dokter');
     }
 
     /**
@@ -55,9 +57,11 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function get($id_dokter)
     {
-        //
+        $dokter = Dokter::find($id_dokter);
+        dd($id_dokter);
+        return redirect()->action([DokterController::class, 'index']);
     }
 
     /**
@@ -66,9 +70,10 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(dokter $dokter)
+    public function edit($id_dokter)
     {
-        return view('dokter.edit', compact('student'));
+	$dokter = DB::table('dokter')->where('id_dokter',$id_dokter)->get();
+	return view('update_dokter',['dokter' => $dokter]);
     }
 
     /**
@@ -78,9 +83,15 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        DB::table('dokter')->where('id_dokter',$request->id_dokter)->update([
+            'nama_dokter' => $request->nama_dokter,
+            'jenis_kelamin_dokter' => $request->jenis_kelamin_dokter,
+            'spesialis' => $request->spesialis
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/dokter');
     }
 
     /**
@@ -89,10 +100,9 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(dokter $dokter)
+    public function destroy($id_dokter)
     {
-        $dokter->delete();
-
-        return redirect()->action([DokterController::class, 'index'])->with('succes','dokter deleted succesfully');
+        DB::table('dokter')->where('id_dokter',$id_dokter)->delete();
+        return redirect('/dokter');
     }
 }

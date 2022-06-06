@@ -6,7 +6,7 @@
 <a href="{{ '/dokter' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
 <div class="card card-info card-outline">
 <div class="card-body">
-   <form action="{{ route('simpandokter') }}" method="post">
+   <form action={{ ("/dokter/store") }} method="post">
     @csrf
         <div class="form-group">
             <input type="text" id="nama_dokter" name="nama_dokter" class="form-control" placeholder="Nama Dokter">

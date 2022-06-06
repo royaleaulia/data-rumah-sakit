@@ -31,7 +31,7 @@ class PasienController extends Controller
      */
     public function create()
     {
-        //
+        return view ('create_pasien');
     }
 
     /**
@@ -42,7 +42,15 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kamar = pasien::create([
+            'nama_pasien' => $request->nama_pasien,
+            'tanggal_lahir_pasien' => $request->tanggal_lahir_pasien,
+            'alamat_pasien' => $request-> alamat_pasien,
+            'jenis_kelamin_pasien' => $request->jenis_kelamin_pasien,
+            'no_telp_pasien' => $request->no_telp_pasien,
+        ]);
+
+        return redirect()->action([PasienController::class, 'index']);
     }
 
     /**

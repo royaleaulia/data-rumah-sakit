@@ -25,7 +25,7 @@ class ObatController extends Controller
      */
     public function create()
     {
-        //
+        return view ('create_obat');
     }
 
     /**
@@ -36,7 +36,13 @@ class ObatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kamar = obat::create([
+            'nama_obat' => $request->nama_obat,
+            'jenis_obat' => $request->jenis_obat,
+            'fungsi_obat' => $request->fungsi_obat,
+        ]);
+
+        return redirect()->action([ObatController::class, 'index']);
     }
 
     /**

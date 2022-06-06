@@ -18,6 +18,7 @@ return new class extends Migration
             $table-> string("nama_petugas", 255);
             $table-> string("alamat_petugas", 255);
             $table-> string("jenis_kelamin_petugas", 255);
+            $table->timestamps();
         });
     }
 

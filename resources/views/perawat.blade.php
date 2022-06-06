@@ -2,23 +2,30 @@
 
 @section('container')
     <h1>Halaman Perawat</h1>
+
     <div>
-        <a href="{{ '/create_perawat' }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
+        <a href="{{ url('/perawat/create') }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
     </div>
     <div>
+        <form method="POST">
         <table class="table table-bordered">
             <tr>
                 <th>Nama Perawat</th>
                 <th>Jenis Kelamin</th>
+                <th>Aksi</th>
             </tr>
-            <tr>
-                @foreach ($perawat as $per)
-                <tr>  
-                    <td>{{ $per->nama_perawat}}</td>
-                    <td>{{ $per->jenis_kelamin }}</td>
-                </tr>
-              @endforeach
+            @foreach($perawat as $pwr)
+		    <tr>
+                <td>{{ $pwr->nama_perawat}}</td>
+                <td>{{ $pwr->jenis_kelamin}}</td>
+			<td>
+				<a href="/perawat/edit/{{ $pwr->id }}">Edit</a>
+				|
+				<a href="/perawat/hapus/{{ $pwr->id }}">Hapus</a>
+			</td>
             </tr>
+            @endforeach
         </table>
+</form>
     </div>
 @endsection

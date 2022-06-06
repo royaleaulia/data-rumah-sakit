@@ -79,33 +79,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link disabled">Dokter</a>
+                    <a class="nav-link {{ ($title == "Home") ? 'active' : '' }}" href="/home">Home</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled">Perawat</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled">Pasien</a>
-                </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Kamar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Obat</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Petugas Administrasi</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-                <li class="nav-item dropdown disable">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Detail
-                  </a>
+                  <a class="nav-link {{ ($title == "About") ? 'active' : '' }}" href="/about">About</a>
                 </li>
               
-                <li class="navbar-nav ms-auto">
+                <li class="navbar-nav ms-auto ">
                   <ul class="nav-item">
                     <a href="/login" class="nav-link {{ ($title == "Login") ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                   </ul>

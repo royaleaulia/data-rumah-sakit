@@ -42,12 +42,11 @@ class DokterController extends Controller
         $dokter = dokter::create([
             'nomor_identitas_dokter' => $request->nomor_identitas_dokter,
             'nama_dokter' => $request->nama_dokter,
-            'jenis_kelamin_dokter' => $request->jenis_kelamain_dokter,
+            'jenis_kelamin_dokter' => $request->jenis_kelamin_dokter,
             'spesialis' => $request->spesialis,
         ]);
 
-        return redirect()->route('tampildokter');
-
+        return redirect()->action([DokterController::class, 'index']);
     }
 
     /**

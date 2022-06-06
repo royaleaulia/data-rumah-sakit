@@ -9,9 +9,6 @@
    <form action="{{ route('simpandokter') }}" method="post">
     @csrf
         <div class="form-group">
-            <input type="text" id="nomor_identitas_dokter" name="nomor_identitas_dokter" class="form-control" placeholder="Nomor Identitas Dokter">
-        </div>
-        <div class="form-group">
             <input type="text" id="nama_dokter" name="nama_dokter" class="form-control" placeholder="Nama Dokter">
         </div>
         <div class="form-group">

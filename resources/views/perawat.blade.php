@@ -8,14 +8,12 @@
     <div>
         <table class="table table-bordered">
             <tr>
-                <th>Nomor Identitas Perawat</th>
                 <th>Nama Perawat</th>
                 <th>Jenis Kelamin</th>
             </tr>
             <tr>
                 @foreach ($perawat as $per)
                 <tr>  
-                    <td>{{ $per->nomor_identitas_perawat }}</td>
                     <td>{{ $per->nama_perawat}}</td>
                     <td>{{ $per->jenis_kelamin }}</td>
                 </tr>

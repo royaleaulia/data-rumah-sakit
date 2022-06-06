@@ -42,11 +42,7 @@ Route::get('/create_pasien', function () {
         ]);
 })->middleware('auth');
 
-Route::get('/dokter', function () {
-    return view('dokter', [
-        "title" => "Dokter"
-    ]);
-})->middleware('auth');
+Route::resource('dokter', 'App\Http\Controllers\DokterController');
 
 Route::get('/create_dokter', function () {
     return view('create_dokter', [

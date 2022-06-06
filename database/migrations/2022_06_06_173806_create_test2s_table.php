@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dokter', function (Blueprint $table) {
-            $table-> increments("id_dokter",11);
-            $table-> string("nama_dokter", 255);
-            $table-> string("jenis_kelamin_dokter", 255);
-            $table-> string("spesialis", 255);
+        Schema::create('test2s', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dokter');
+        Schema::dropIfExists('test2s');
     }
 };

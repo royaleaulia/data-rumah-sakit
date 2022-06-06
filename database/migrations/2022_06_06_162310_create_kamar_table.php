@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('kamar', function (Blueprint $table) {
             $table-> increments("id_kamar");
             $table-> string("nama_kamar", 50);
-            $table-> integer("nomor_kamar", 11);
+            $table-> integer("nomor_kamar");
         });
     }
 

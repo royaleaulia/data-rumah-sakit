@@ -1,12 +1,12 @@
 @extends('dashboard.layout.main')
 
 @section('container')
-    <h1>Halaman Tambah Kamar</h1>
+    <h1>Halaman Tambah Data Kamar</h1>
 
 <a href="{{ '/kamar' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
 <div class="card card-info card-outline">
 <div class="card-body">
-   <form action="{{ route('simpankamar') }}" method="post">
+   <form action={{ ("/kamar/store") }} method="post">
     @csrf
         <div class="form-group">
             <input type="text" id="nama_kamar" name="nama_kamar" class="form-control" placeholder="Nama Kamar">

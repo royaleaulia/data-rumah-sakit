@@ -1,27 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Post;
 use App\Models\pasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PasienController extends Controller
+class DokterController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response\
+     * @return \Illuminate\Http\Response
      */
+
+    
     public function index()
     {
-        $pasien = pasien::select("*")->get();
-        return view('pasien', ['pasien' => $pasien]);
-        // $pasien = DB::table('pasien')->get();
-        // return response()->json([
-        //     'pasien'=> $pasien
-        // ], 200);
+        $pasien = DB::table('pasien')->get();
+        return view('pasien',['pasien' => $kamar]);
     }
 
     /**
@@ -31,7 +27,7 @@ class PasienController extends Controller
      */
     public function create()
     {
-        return view ('create_pasien');
+        return view('create_pasien');
     }
 
     /**
@@ -42,59 +38,72 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        $kamar = pasien::create([
+        
+        $pasien = pasien::create([
             'nama_pasien' => $request->nama_pasien,
             'tanggal_lahir_pasien' => $request->tanggal_lahir_pasien,
-            'alamat_pasien' => $request-> alamat_pasien,
+            'alamat_pasien' => $request->alamat_pasien,
             'jenis_kelamin_pasien' => $request->jenis_kelamin_pasien,
-            'no_telp_pasien' => $request->no_telp_pasien,
+            'no_telp_pasien' => $request->no_telp_pasien
         ]);
 
-        return redirect()->action([PasienController::class, 'index']);
+        return redirect('/pasien');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function get($id_pasien)
     {
-        //
+        $pasien = pasien::find($id_pasien);
+        dd($id_kamar);
+        return redirect()->action([KamarController::class, 'index']);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id_pasien)
     {
-        //
+	$kamar = DB::table('pasien')->where('id_pasien',$id_pasien)->get();
+	return view('update_pasien',['pasien' => $pasien]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request)
     {
-        //
+        DB::table('pasien')->where('id_pasien',$request->id_pasien)->update([
+            'nama_pasien' => $request->nama_pasien,
+            'tanggal_lahir_pasien' => $request->tanggal_lahir_pasien,
+            'alamat_pasien' => $request->alamat_pasien,
+            'jenis_kelamin_pasien' => $request->jenis_kelamin_pasien,
+            'no_telp_pasien' => $request->no_telp_pasien
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/pasien');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id_pasien)
     {
-        //
+        DB::table('pasien')->where('id_pasien',$id_pasien)->delete();
+        return redirect('/pasien');
     }
 }

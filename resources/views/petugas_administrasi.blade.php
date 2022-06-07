@@ -2,23 +2,33 @@
 
 @section('container')
     <h1>Halaman Petugas Administrasi</h1>
+
     <div>
-        <a href="{{ '/create_petugas_administrasi' }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
+        <a href="{{ url('/dokter/create') }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
     </div>
     <div>
+        <form method="POST">
         <table class="table table-bordered">
             <tr>
-                <th>Nama Petugas </th>
-                <th>Alamat Petugas</th>
-                <th>Jenis Kelamin Petugas</th>
+                <th>Nama Petugas</th>
+                <th>Alamat</th>
+                <th>Jenis Kelamin Dokter</th>
+                <th>Aksi</th>
             </tr>
-            @foreach ($petugas_administrasi as $pet)
-            <tr>  
-                <td>{{ $pet->nama_petugas}}</td>
-                <td>{{ $pet->alamat_petugas }}</td>
-                <td>{{ $pet->jenis_kelamin_petugas}}</td>
-            </tr>
-          @endforeach
+        @foreach($petugas as $gas)
+		<tr>
+        <td>{{ $gas->nama_petugas }}</td>
+                  <td>{{ $gas->alamat_petugas}}</td>
+                  <td>{{ $gas->jenis_kelamin_petugas}}</td>
+			<td>
+				<a href="/petugas_administrasi/edit/{{ $gas->id }}">Edit</a>
+				|
+				<a href="/petugas_administrasi/hapus/{{ $gas->id }}">Hapus</a>
+			</td>
+</td>
+              </tr>
+            @endforeach
         </table>
+</form>
     </div>
 @endsection

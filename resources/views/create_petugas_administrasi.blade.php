@@ -3,10 +3,10 @@
 @section('container')
     <h1>Halaman Tambah Petugas Administrasi</h1>
 
-<a href="{{ '/kamar' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
+<a href="{{ '/dokter' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
 <div class="card card-info card-outline">
 <div class="card-body">
-   <form action="{{ route('simpanpetugas') }}" method="post">
+   <form action={{ ("/petugas_administrasi/store") }} method="post">
     @csrf
         <div class="form-group">
             <input type="text" id="nama_petugas" name="nama_petugas" class="form-control" placeholder="Nama Petugas">

@@ -7,7 +7,7 @@
         <a href="{{ url('/dokter/create') }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
     </div>
     <div>
-        <form method="POSY">
+        <form method="POST">
         <table class="table table-bordered">
             <tr>
                 <th>Nama Dokter</th>

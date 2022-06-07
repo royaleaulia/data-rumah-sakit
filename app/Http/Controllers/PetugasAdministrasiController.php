@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\petugas_administrasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PetugasAdministrasiController extends Controller
 {
@@ -12,10 +12,12 @@ class PetugasAdministrasiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
     public function index()
     {
-        $petugas_administrasi = petugas_administrasi::select("*")->get();
-        return view('petugas_administrasi', ['petugas_administrasi' => $petugas_administrasi]);
+        $petugas_administrasi = DB::table('petugas_administrasi')->get();
+        return view('petugas_administrasi',['petugas_administrasi' => $petugas_administrasi]);
     }
 
     /**
@@ -25,7 +27,7 @@ class PetugasAdministrasiController extends Controller
      */
     public function create()
     {
-        return view ('create_petugas_administrasi');
+        return view('create_petugas_administrasi');
     }
 
     /**
@@ -36,25 +38,27 @@ class PetugasAdministrasiController extends Controller
      */
     public function store(Request $request)
     {
-        $kamar = petugas_administrasi::create([
+        
+        $petugas_administrasi = petugas_administrasi::create([
             'nama_petugas' => $request->nama_petugas,
             'alamat_petugas' => $request->alamat_petugas,
-            'jenis_kelamin_petugas' => $request->jenis_kelamin_petugas,
-
+            'jenis_kelamin_petugas' => $request->jenis_kelamin_petugas
         ]);
 
-        return redirect()->action([PetugasAdministrasiController::class, 'index']);
+        return redirect('/petugas_administrasi');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\pegawai_administrasi  $pegawai_administrasi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function get($id)
     {
-        //
+        $petugas_administrasi = PetugasAdministrasi::find($id);
+        dd($id);
+        return redirect()->action([PetugasAdministrasiController::class, 'index']);
     }
 
     /**
@@ -64,8 +68,9 @@ class PetugasAdministrasiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {  
+    DB::table('petugas_administrasi')->where('id',$id)->get();
+	return view('update_petugas_administrasi',['petugas_administrasi' => $petugas_administrasi]);
     }
 
     /**
@@ -75,9 +80,15 @@ class PetugasAdministrasiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        DB::table('petugas_administrasi')->where('id',$request->petugas_administrasi)->update([
+            'nama_petugas' => $request->nama_petugas,
+            'alamat_petugas' => $request->alamat_petugas,
+            'jenis_kelamin_petugas' => $request->jenis_kelamin_petugas
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/petugas_administrasi');
     }
 
     /**
@@ -88,6 +99,7 @@ class PetugasAdministrasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('petugas_administrasi')->where('id',$id)->delete();
+        return redirect('/petugas_administrasi');
     }
 }

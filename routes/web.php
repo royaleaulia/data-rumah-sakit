@@ -30,68 +30,31 @@ Route::get('/', function () {
         ]);
 });
 
-Route::get('/pasien', function () {
-    return view('pasien', [
-        "title" => "Pasien"
-        ]);
-})->middleware('auth');
+Route::resource('dokter', 'App\Http\Controllers\DokterController')->middleware('auth');
+Route::post('/dokter/store', 'App\Http\Controllers\DokterController@store')->middleware('auth');
+Route::get('/dokter/edit/{id_dokter}','App\Http\Controllers\DokterController@edit')->middleware('auth');
+Route::post('/dokter/update','App\Http\Controllers\DokterController@update')->middleware('auth');
+Route::get('/dokter/hapus/{id_dokter}','App\Http\Controllers\DokterController@destroy')->middleware('auth');
 
-Route::get('/create_pasien', function () {
-    return view('create_pasien', [
-        "title" => "Create_Pasien"
-        ]);
-})->middleware('auth');
+Route::resource('kamar', 'App\Http\Controllers\KamarController')->middleware('auth');
+Route::post('/kamar/store', 'App\Http\Controllers\KamarController@store')->middleware('auth');
+Route::get('/kamar/edit/{id_kamar}','App\Http\Controllers\KamarController@edit')->middleware('auth');
+Route::post('/kamar/update','App\Http\Controllers\KamarController@update')->middleware('auth');
+Route::get('/kamar/hapus/{id_kamar}','App\Http\Controllers\KamarController@destroy')->middleware('auth');
+
+Route::resource('pasien', 'App\Http\Controllers\PasienController')->middleware('auth');
+Route::post('/pasien/store', 'App\Http\Controllers\PasienController@store')->middleware('auth');
+Route::get('/pasien/edit/{id_pasien}','App\Http\Controllers\PasienController@edit')->middleware('auth');
+Route::post('/pasien/update','App\Http\Controllers\PasienController@update')->middleware('auth');
+Route::get('/pasien/hapus/{id_pasien}','App\Http\Controllers\PasienController@destroy')->middleware('auth');
 
 
-Route::resource('dokter', 'App\Http\Controllers\DokterController');
-Route::post('/dokter/store', 'App\Http\Controllers\DokterController@store');
-Route::get('/dokter/edit/{id_dokter}','App\Http\Controllers\DokterController@edit');
-Route::post('/dokter/update','App\Http\Controllers\DokterController@update');
-Route::get('/dokter/hapus/{id_dokter}','App\Http\Controllers\DokterController@destroy');
+Route::resource('petugas_administrasi', 'App\Http\Controllers\PetugasAdministrasiController')->middleware('auth');
+Route::post('/petugas_administrasi/store', 'App\Http\Controllers\PetugasAdministrasiController@store')->middleware('auth');
+Route::get('/petugas_administrasi/edit/{id}','App\Http\Controllers\PetugasAdministrasiController@edit')->middleware('auth');
+Route::post('/petugas_administrasi/update','App\Http\Controllers\PetugasAdministrasiController@update')->middleware('auth');
+Route::get('/petugas_administrasi/hapus/{id}','App\Http\Controllers\PetugasAdministrasiController@destroy')->middleware('auth');
 
-Route::get('/perawat', function () {
-    return view('perawat', [
-    ]);
-})->middleware('auth');
-
-Route::get('/create_perawat', function () {
-    return view('create_perawat', [
-        "title" => "Perawat"
-    ]);
-})->middleware('auth');
-
-Route::get('/kamar', function () {
-    return view('kamar', [
-    ]);
-})->middleware('auth');
-
-Route::get('/create_kamar', function () {
-    return view('create_kamar', [
-        "title" => "Create_Kamar"
-    ]);
-})->middleware('auth');
-
-Route::get('/obat', function () {
-    return view('obat', [
-    ]);
-})->middleware('auth');
-
-Route::get('/create_obat', function () {
-    return view('create_obat', [
-        "title" => "Obat"
-    ]);
-})->middleware('auth');
-
-Route::get('/petugas_administrasi', function () {
-    return view('petugas_administrasi', [
-    ]);
-})->middleware('auth');
-
-Route::get('/create_petugas_administrasi', function () {
-    return view('create_petugas_administrasi', [
-        "title" => "Petugas Administrasi"
-    ]);
-})->middleware('auth');
 
 Route::get('/data_administrasi', function () {
     return view('data_administrasi', [
@@ -144,20 +107,3 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
-
-Route::get('/pasien', [PasienController::class, 'index'])->middleware('auth');
-Route::post('pasien/tambah', [PasienController::class, 'store'])->name('simpanpasien')->middleware('auth');
-
-Route::post('dokter/tambah', [DokterController::class, 'store'])->name('simpandokter')->middleware('auth');
-
-Route::get('/perawat', [PerawatController::class, 'index'])->middleware('auth');
-Route::post('perawat/tambah', [PerawatController::class, 'store'])->name('simpanperawat')->middleware('auth');
-
-Route::get('/kamar', [KamarController::class, 'index'])->middleware('auth');
-Route::post('kamar/tambah', [KamarController::class, 'store'])->name('simpankamar')->middleware('auth');
-
-Route::get('/obat', [ObatController::class, 'index'])->middleware('auth');
-Route::post('obat/tambah', [ObatController::class, 'store'])->name('simpanobat')->middleware('auth');
-
-Route::get('/petugas_administrasi', [PetugasAdministrasiController::class, 'index'])->middleware('auth');
-Route::post('petugas_administrasi/tambah', [PetugasAdministrasiController::class, 'store'])->name('simpanpetugas')->middleware('auth');

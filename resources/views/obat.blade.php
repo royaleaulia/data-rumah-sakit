@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 
 @section('container')
-    <h1>Halaman Dokter</h1>
+    <h1>Halaman Obat</h1>
 
     <div>
         <a href="{{ url('/obat/create') }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>

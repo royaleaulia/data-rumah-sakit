@@ -6,7 +6,7 @@
 <a href="{{ '/petugas_administrasi' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
 <div class="card card-info card-outline">
 <div class="card-body">
-@foreach($petugas as $gas)
+@foreach($petugas_administrasi as $gas)
 	<form action={{ "/petugas_administrasi/update" }} method="post">
 		{{ csrf_field() }}
 		<input type="hidden" name="id" value="{{ $gas->id }}"> <br/>

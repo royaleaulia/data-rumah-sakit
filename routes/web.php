@@ -31,9 +31,9 @@ Route::get('/', function () {
 });
 Route::resource('perawat', 'App\Http\Controllers\PerawatController')->middleware('auth');
 Route::post('/perawat/store', 'App\Http\Controllers\PerawatController@store')->middleware('auth');
-Route::get('/perawat/edit/{id_perawat}','App\Http\Controllers\PerawatController@edit')->middleware('auth');
+Route::get('/perawat/edit/{id}','App\Http\Controllers\PerawatController@edit')->middleware('auth');
 Route::post('/perawat/update','App\Http\Controllers\PerawatController@update')->middleware('auth');
-Route::get('/perawat/hapus/{id_perawat}','App\Http\Controllers\PerawatController@destroy')->middleware('auth');
+Route::get('/perawat/hapus/{id}','App\Http\Controllers\PerawatController@destroy')->middleware('auth');
 
 
 Route::resource('dokter', 'App\Http\Controllers\DokterController')->middleware('auth');
@@ -44,9 +44,9 @@ Route::get('/dokter/hapus/{id_dokter}','App\Http\Controllers\DokterController@de
 
 Route::resource('kamar', 'App\Http\Controllers\KamarController')->middleware('auth');
 Route::post('/kamar/store', 'App\Http\Controllers\KamarController@store')->middleware('auth');
-Route::get('/kamar/edit/{id_kamar}','App\Http\Controllers\KamarController@edit')->middleware('auth');
+Route::get('/kamar/edit/{id}','App\Http\Controllers\KamarController@edit')->middleware('auth');
 Route::post('/kamar/update','App\Http\Controllers\KamarController@update')->middleware('auth');
-Route::get('/kamar/hapus/{id_kamar}','App\Http\Controllers\KamarController@destroy')->middleware('auth');
+Route::get('/kamar/hapus/{id}','App\Http\Controllers\KamarController@destroy')->middleware('auth');
 
 Route::resource('pasien', 'App\Http\Controllers\PasienController')->middleware('auth');
 Route::post('/pasien/store', 'App\Http\Controllers\PasienController@store')->middleware('auth');
@@ -61,6 +61,11 @@ Route::get('/petugas_administrasi/edit/{id}','App\Http\Controllers\PetugasAdmini
 Route::post('/petugas_administrasi/update','App\Http\Controllers\PetugasAdministrasiController@update')->middleware('auth');
 Route::get('/petugas_administrasi/hapus/{id}','App\Http\Controllers\PetugasAdministrasiController@destroy')->middleware('auth');
 
+Route::resource('obat', 'App\Http\Controllers\ObatController')->middleware('auth');
+Route::post('/obat/store', 'App\Http\Controllers\ObatController@store')->middleware('auth');
+Route::get('/obat/edit/{id_obat}','App\Http\Controllers\ObatController@edit')->middleware('auth');
+Route::post('/obat/update','App\Http\Controllers\ObatController@update')->middleware('auth');
+Route::get('/obat/hapus/{id_obat}','App\Http\Controllers\ObatController@destroy')->middleware('auth');
 
 Route::get('/data_administrasi', function () {
     return view('data_administrasi', [

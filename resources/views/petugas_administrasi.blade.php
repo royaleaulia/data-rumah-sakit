@@ -4,7 +4,7 @@
     <h1>Halaman Petugas Administrasi</h1>
 
     <div>
-        <a href="{{ url('/dokter/create') }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
+        <a href="{{ url('/petugas_administrasi/create') }}" class="btn btn-success">Tambah Data<i class="fas-plus-square"></a>
     </div>
     <div>
         <form method="POST">
@@ -15,7 +15,7 @@
                 <th>Jenis Kelamin Dokter</th>
                 <th>Aksi</th>
             </tr>
-        @foreach($petugas as $gas)
+        @foreach($petugas_administrasi as $gas)
 		<tr>
         <td>{{ $gas->nama_petugas }}</td>
                   <td>{{ $gas->alamat_petugas}}</td>

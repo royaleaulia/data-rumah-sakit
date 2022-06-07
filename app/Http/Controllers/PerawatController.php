@@ -67,7 +67,7 @@ class PerawatController extends Controller
     public function edit($id)
     {
         $perawat = DB::table('perawat')->where('id',$id)->get();
-	    return view('update_perawat',['perawat' => $id]);
+	    return view('update_perawat',['perawat' => $perawat]);
     }
 
     /**
@@ -77,10 +77,10 @@ class PerawatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         DB::table('perawat')->where('id',$request->id)->update([
-            'nama_perawat' => $request->nama_dokter,
+            'nama_perawat' => $request->nama_perawat,
             'jenis_kelamin' => $request->jenis_kelamin
         ]);
         // alihkan halaman ke halaman pegawai

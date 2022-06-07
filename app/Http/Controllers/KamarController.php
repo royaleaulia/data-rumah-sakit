@@ -5,7 +5,7 @@ use App\Models\kamar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class DokterController extends Controller
+class KamarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class DokterController extends Controller
     
     public function index()
     {
-        $dokter = DB::table('kamar')->get();
+        $kamar = DB::table('kamar')->get();
         return view('kamar',['kamar' => $kamar]);
         // $dokter = dokter::select("*")->get();
         // return view('dokter', ['dokter' => $dokter]);
@@ -41,7 +41,7 @@ class DokterController extends Controller
     public function store(Request $request)
     {
         
-        $dokter = dokter::create([
+        $kamar = kamar::create([
             'nama_kamar' => $request->nama_kamar,
             'nomor_kamar' => $request->nomor_kamar
         ]);
@@ -55,10 +55,10 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function get($id_kamar)
+    public function get($id)
     {
-        $kamar = Kamar::find($id_kamar);
-        dd($id_kamar);
+        $kamar = Kamar::find($id);
+        dd($id);
         return redirect()->action([KamarController::class, 'index']);
     }
 
@@ -68,9 +68,9 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_kamar)
+    public function edit($id)
     {
-	$kamar = DB::table('kamar')->where('id_kamar',$id_kamar)->get();
+	$kamar = DB::table('kamar')->where('id',$id)->get();
 	return view('update_kamar',['kamar' => $kamar]);
     }
 
@@ -83,7 +83,7 @@ class DokterController extends Controller
      */
     public function update(Request $request)
     {
-        DB::table('kamar')->where('id_kamar',$request->id_kamar)->update([
+        DB::table('kamar')->where('id',$request->id)->update([
             'nama_kamar' => $request->nama_kamar,
             'nomor_kamar' => $request->nomor_kamar
         ]);
@@ -97,9 +97,9 @@ class DokterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_kamar)
+    public function destroy($id)
     {
-        DB::table('kamar')->where('id_kamar',$id_kamar)->delete();
+        DB::table('kamar')->where('id',$id)->delete();
         return redirect('/kamar');
     }
 }

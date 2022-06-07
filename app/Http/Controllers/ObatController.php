@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\obat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ObatController extends Controller
 {
@@ -37,7 +38,7 @@ class ObatController extends Controller
      */
     public function store(Request $request)
     {
-        $kamar = obat::create([
+        $obat = obat::create([
             'nama_obat' => $request->nama_obat,
             'jenis_obat' => $request->jenis_obat,
             'fungsi_obat' => $request->fungsi_obat,
@@ -63,7 +64,7 @@ class ObatController extends Controller
      * @param  \App\Models\obat  $obat
      * @return \Illuminate\Http\Response
      */
-    public function edit(obat $obat)
+    public function edit($id_obat)
     {
         $obat = DB::table('obat')->where('id_obat',$id_obat)->get();
 	    return view('update_obat',['obat' => $obat]);
@@ -76,7 +77,7 @@ class ObatController extends Controller
      * @param  \App\Models\obat  $obat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, obat $obat)
+    public function update(Request $request)
     {
         DB::table('obat')->where('id_obat',$request->id_obat)->update([
             'nama_obat' => $request->nama_obat,
@@ -93,7 +94,7 @@ class ObatController extends Controller
      * @param  \App\Models\obat  $obat
      *obatrn \Illuminate\Http\Response
      */
-    public function destroy(obat $obat)
+    public function destroy($id_obat)
     {
         DB::table('obat')->where('id_obat',$id_obat)->delete();
         return redirect('/obat');

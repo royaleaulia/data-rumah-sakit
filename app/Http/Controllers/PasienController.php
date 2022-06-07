@@ -5,7 +5,7 @@ use App\Models\pasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class DokterController extends Controller
+class PasienController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class DokterController extends Controller
     public function index()
     {
         $pasien = DB::table('pasien')->get();
-        return view('pasien',['pasien' => $kamar]);
+        return view('pasien',['pasien' => $pasien]);
     }
 
     /**
@@ -71,7 +71,7 @@ class DokterController extends Controller
      */
     public function edit($id_pasien)
     {
-	$kamar = DB::table('pasien')->where('id_pasien',$id_pasien)->get();
+	$pasien = DB::table('pasien')->where('id_pasien',$id_pasien)->get();
 	return view('update_pasien',['pasien' => $pasien]);
     }
 

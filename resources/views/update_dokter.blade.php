@@ -12,7 +12,7 @@
 		<input type="hidden" name="id_dokter" value="{{ $dok->id_dokter }}"> <br/>
 		Nama Dokter <input type="text" required="required" name="nama_dokter" value="{{ $dok->nama_dokter }}"> <br/>
 		Jenis Kelamin <input type="text" required="required" name="jenis_kelamin_dokter" value="{{ $dok->jenis_kelamin_dokter }}"> <br/>
-		Spesialis  <input type="text" required="required" name=" spesialis " value="{{ $dok-> spesialis  }}"> <br/>
+		Spesialis  <input type="text" required="required" name="spesialis" value="{{ $dok-> spesialis  }}"> <br/>
 		<input type="submit" value="Simpan Data">
 	</form>
 	@endforeach

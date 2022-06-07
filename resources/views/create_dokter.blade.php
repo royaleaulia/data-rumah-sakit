@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 
 @section('container')
-    <h1>Halaman Tambah Data Kamar</h1>
+    <h1>Halaman Tambah Data Dokter</h1>
 
 <a href="{{ '/dokter' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
 <div class="card card-info card-outline">
@@ -9,10 +9,13 @@
    <form action={{ ("/dokter/store") }} method="post">
     @csrf
         <div class="form-group">
-            <input type="text" id="nama_kamar" name="nama_kamar" class="form-control" placeholder="Nama Kamar">
+            <input type="text" id="nama_dokter" name="nama_dokter" class="form-control" placeholder="Nama Dokter">
         </div>
         <div class="form-group">
-            <input type="text" id="nomor_kamar" name="nomor_kamar" class="form-control" placeholder="Nomor Kamar">
+            <input type="text" id="jenis_kelamin_dokter" name="jenis_kelamin_dokter" class="form-control" placeholder="Jenis Kelamin">
+        </div>
+        <div class="form-group">
+            <input type="text" id="spesialis" name="spesialis" class="form-control" placeholder="Spesialis">
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success">Simpan Data</button>

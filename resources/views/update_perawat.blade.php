@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Halaman Edit Data Obat</h1>
+    <h1>Halaman Edit Data Perawat</h1>
 
-<a href="{{ '/obat' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
+<a href="{{ '/perawat' }}" class="btn btn-success">Kembali<i class="fas-plus-square"></a>
 <div class="card card-info card-outline">
 <div class="card-body">
 @foreach($perawat as $pwr)

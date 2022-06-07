@@ -29,6 +29,12 @@ Route::get('/', function () {
         "title" => "Login"
         ]);
 });
+Route::resource('perawat', 'App\Http\Controllers\PerawatController')->middleware('auth');
+Route::post('/perawat/store', 'App\Http\Controllers\PerawatController@store')->middleware('auth');
+Route::get('/perawat/edit/{id_perawat}','App\Http\Controllers\PerawatController@edit')->middleware('auth');
+Route::post('/perawat/update','App\Http\Controllers\PerawatController@update')->middleware('auth');
+Route::get('/perawat/hapus/{id_perawat}','App\Http\Controllers\PerawatController@destroy')->middleware('auth');
+
 
 Route::resource('dokter', 'App\Http\Controllers\DokterController')->middleware('auth');
 Route::post('/dokter/store', 'App\Http\Controllers\DokterController@store')->middleware('auth');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\obat;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ObatController extends Controller
 {
@@ -64,7 +65,8 @@ class ObatController extends Controller
      */
     public function edit(obat $obat)
     {
-        //
+        $obat = DB::table('obat')->where('id_obat',$id_obat)->get();
+	    return view('update_obat',['obat' => $obat]);
     }
 
     /**
@@ -76,17 +78,24 @@ class ObatController extends Controller
      */
     public function update(Request $request, obat $obat)
     {
-        //
+        DB::table('obat')->where('id_obat',$request->id_obat)->update([
+            'nama_obat' => $request->nama_obat,
+            'jenis_obat' => $request->jenis_obat,
+            'fungsi_obat' => $request->fungsi_obat
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/obat');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\obat  $obat
-     * @return \Illuminate\Http\Response
+     *obatrn \Illuminate\Http\Response
      */
     public function destroy(obat $obat)
     {
-        //
+        DB::table('obat')->where('id_obat',$id_obat)->delete();
+        return redirect('/obat');
     }
 }

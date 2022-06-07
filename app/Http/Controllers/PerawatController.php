@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\perawat;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 class PerawatController extends Controller
 {
     /**
@@ -62,7 +64,8 @@ class PerawatController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dokter = DB::table('perawat')->where('id',$id)->get();
+	    return view('update_perawat',['perawat' => $perawat]);
     }
 
     /**
@@ -74,7 +77,12 @@ class PerawatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('perawat')->where('id',$request->id)->update([
+            'nama_perawat' => $request->nama_dokter,
+            'jenis_kelamin' => $request->jenis_kelamin
+        ]);
+        // alihkan halaman ke halaman pegawai
+        return redirect('/dokter');
     }
 
     /**
@@ -85,6 +93,7 @@ class PerawatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('perawat')->where('id', $id)->delete();
+        return redirect('/perawat');
     }
 }

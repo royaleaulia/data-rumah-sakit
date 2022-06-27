@@ -35,7 +35,7 @@ Route::get('/perawat/edit/{id}','App\Http\Controllers\PerawatController@edit')->
 Route::post('/perawat/update','App\Http\Controllers\PerawatController@update')->middleware('auth');
 Route::get('/perawat/hapus/{id}','App\Http\Controllers\PerawatController@destroy')->middleware('auth');
 
-
+//add git
 Route::resource('dokter', 'App\Http\Controllers\DokterController')->middleware('auth');
 Route::post('/dokter/store', 'App\Http\Controllers\DokterController@store')->middleware('auth');
 Route::get('/dokter/edit/{id_dokter}','App\Http\Controllers\DokterController@edit')->middleware('auth');

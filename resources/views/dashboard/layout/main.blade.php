@@ -24,7 +24,8 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       @yield('container')
 
-      {{-- <h2>Section title</h2>
+      {{-- hello World --}}
+      <h2>Section title</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -151,7 +152,7 @@
             </tr>
           </tbody>
         </table> 
-      </div> --}}
+      </div>
     </main>
   </div>
 </div>

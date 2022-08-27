@@ -18,7 +18,7 @@
             </tr>
         @foreach($pasien as $pas)
 		<tr>
-        <td>{{ $pas->tanggal_lahir_pasien}}</td>
+        <td>{{ $pas->nama_pasien}}</td>
         <td>{{ $pas->alamat_pasien}}</td>
         <td>{{ $pas->jenis_kelamin_pasien}}</td>
 		<td>{{ $pas->no_telp_pasien}}</td>
